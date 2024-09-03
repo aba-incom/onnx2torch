@@ -55,7 +55,7 @@ def _(node: OnnxNode, graph: OnnxGraph) -> OperationConverterResult:
         input_shape = get_shape_from_value_info(input_value_info)
 
         torch_module = nn.LayerNorm(
-            normalized_shape=input_shape[axis:],
+            normalized_shape=(1536), # input_shape[axis:], (this block!)
             eps=epsilon,
             elementwise_affine=True,
         )
